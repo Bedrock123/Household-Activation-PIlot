@@ -1,0 +1,43 @@
+/*Version 5a Call To Action CSS*/
+.call-to-action-big-button {
+font-size: 17px;
+width: 100%;
+padding: 0px;
+margin:0px;
+color: white;
+background-color: #604ca8;
+color: #fff !important;
+height: 45px;
+font-weight: 700 !important;
+transition: all 0.5s ease;
+}
+.call-to-action-big-button:hover {
+background-color: #1ab7ea;
+transition: all 0.5s ease;
+}
+.custom-modal {
+
+color: #604ca8 !important;
+}
+.modal-header {
+color: #fff !important;
+border: 0px !important;
+height: 10px;
+}
+.cta-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.custom-modal p {
+	font-weight: 300;
+	font-size: 17px;
+
+}
+.custom-modal p a{
+	font-weight: 700;
+	font-size: 17px;
+	color: #1ab7ea !important;
+	text-decoration: underline;
+
+}
