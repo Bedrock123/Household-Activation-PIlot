@@ -396,3 +396,16 @@ body {
     max-height: 300px;
     min-height: 300px;
 }
+
+.circle p {
+  padding-top: 75px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.circle p strong {
+  padding-top: 80px;
+  font-size: 34px;
+  font-weight: 700;
+  color: white !important;
+}

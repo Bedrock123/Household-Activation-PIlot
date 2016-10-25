@@ -23,7 +23,7 @@ Listed below are all of the tags in the index.html and what data point they corr
 <span id=“hours-read”>1925</span>
 
 <!-- Learning Aly Member Average Minutes Read -->
-<span id=avg-min-read”>5</span>
+<span id=avg-min-read”>325</span>
 
 <!-- Learning Ally Member Total Weekend Day Read -->
 <span id="weekends-read">120</span>
