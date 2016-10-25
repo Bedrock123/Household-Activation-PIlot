@@ -1,38 +1,32 @@
-##Parent Pilot Dashboard
+##Household Activation Pilot
 
-[View the live demo](http://zacharybedrosian.com/LEARNING/V8/index.html)
+[View the live demo](http://zacharybedrosian.com/LEARNING/V12/index.html)
 
-Parent Pilot Dashboard is a single page dashboard that summarizes a Learning Ally member's yearly reading statistics and reading averages.
+Household Activation Pilot is a single page dashboard that summarizes a Learning Ally member's yearly reading statistics and reading averages.
 
 ---
 
 ReactJS Tags
 ------------
-Listed below are all of the tags in the index.html and what data point or calculation they correspond with.
+Listed below are all of the tags in the index.html and what data point they correspond with.
+
+**Importante Note: All of the reading stats are controlled by the CountUp.JS Script. I placed all of the custom init scripts in the html page for your reference.** 
 
 ~~~ html
 <!-- Learning Ally Member Frist Name -->
-<span class=“first-name”>Carlos</span>
+<span id=“first-name”>Carlos</span>
 
 <!-- Learning Ally Total Days Read -->
-<span class=“days-read”>362</span>
+<span id=“days-read”>362</span>
 
 <!-- Learning Ally Member Total Hours Read -->
-<span class=“hours-read”>214</span>
+<span id=“hours-read”>1925</span>
 
-<!-- 
-Learning Ally Member Average Hours Read 
+<!-- Learning Aly Member Average Minutes Read -->
+<span id=avg-min-read”>5</span>
 
-Take the Total Hours Read and divide by
-Total Days Read...https://www.youtube.com/watch?v=1XmUUa_pWw8
-
-round down to the nearest whole number
-so we can say "over" × hours a day.
--->
-<span class=“hours-avg-eq”>5</span>
-
-<!-- Learning Ally Member Total Weekend Hours Read -->
-<span class="weekend-hours">120</span>
+<!-- Learning Ally Member Total Weekend Day Read -->
+<span id="weekends-read">120</span>
 
 ...
 ~~~
@@ -40,8 +34,6 @@ so we can say "over" × hours a day.
 Third Party Packages/Libraries
 ---
 [Scroll Progress](https://github.com/jeremenichelli/scrollProgress)
-
-[Masonry.JS](http://masonry.desandro.com/)
 
 [Page Loader Code Droplet](http://tympanus.net/codrops/2014/08/05/page-preloading-effect/)
 

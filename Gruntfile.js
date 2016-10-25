@@ -6,9 +6,11 @@ module.exports = function(grunt) {
                         'js/classie.js',
                         'js/pathLoader.js',
                         'js/main.js',
+                        'js/scrollprogress.js',
                         'js/confetti.js',
                         'js/masonry.js',
                         'js/typed.js',
+                        'js/count.js'
                     ],
                     dest: 'build/js/scripts.js',
                 },

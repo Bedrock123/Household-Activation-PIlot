@@ -207,6 +207,164 @@ if ( typeof define === 'function' && define.amd ) {
 	init();
 
 })();
+(function(root, factory) {
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        define(function() {
+            return factory(root);
+        });
+    } else if (typeof exports === 'object') {
+        module.exports = factory;
+    } else {
+        root.scrollProgress = factory(root);
+    }
+})(this, function() {
+    'use strict';
+
+    var body = document.body,
+        progress = 0,
+        isSet = false,
+        progressWrapper,
+        progressElement,
+        endPoint,
+        // default configuration object
+        config = {
+            bottom: true,
+            color: '#000000',
+            height: '5px',
+            styles: true,
+            prefix: 'progress',
+            events: true
+        };
+
+    /*
+     * Create DOM elements which graphically represent the progress
+     * @method _createElements
+     */
+    var _createElements = function() {
+        progressWrapper = document.createElement('div');
+        progressElement = document.createElement('div');
+
+        progressWrapper.id = config.prefix + '-wrapper';
+        progressElement.id = config.prefix + '-element';
+
+        progressWrapper.appendChild(progressElement);
+        body.appendChild(progressWrapper);
+    };
+
+    /*
+     * Replaces configuration values with custom ones
+     * @method _setConfigObject
+     * @param {object} obj - object containing custom options
+     */
+    var _setConfigObject = function(obj) {
+        // override with custom attributes
+        if (typeof obj === 'object') {
+            for (var key in config) {
+                if (typeof obj[key] !== 'undefined') {
+                    config[key] = obj[key];
+                }
+            }
+        }
+    };
+
+    /*
+     * Set styles on DOM elements
+     * @method _setElementsStyles
+     */
+    var _setElementsStyles = function() {
+        // setting progress to zero and wrapper to full width
+        progressElement.style.width = '0';
+        progressWrapper.style.width = '100%';
+
+        // set styles only if
+        // settings is true
+        if (config.styles) {
+            // progress element
+            progressElement.style.backgroundColor = config.color;
+            progressElement.style.height = config.height;
+
+            // progress wrapper
+            progressWrapper.style.position = 'fixed';
+            progressWrapper.style.left = '0';
+
+            // sets position
+            if (config.bottom) {
+                progressWrapper.style.bottom = '0';
+            } else {
+                progressWrapper.style.top = '0';
+            }
+        }
+    };
+
+    /*
+     * Main function which sets all variables and bind events if needed
+     * @method _set
+     * @param {object} custom - object containing custom options
+     */
+    var _set = function(custom) {
+        // set only once
+        if (!isSet) {
+            if (custom) {
+                _setConfigObject(custom);
+            }
+            _createElements();
+            _setElementsStyles();
+
+            // set initial metrics
+            _setMetrics();
+
+            // bind events only if
+            // settings is true
+            if (config.events) {
+                window.onscroll = _setProgress;
+                window.onresize = _setMetrics;
+            }
+
+            isSet = true;
+        } else {
+            throw new Error('scrollProgress has already been set!');
+        }
+    };
+
+    /*
+     * Calculates how much user has scrolled
+     * @method _setProgress
+     */
+    var _setProgress = function() {
+        try {
+            var y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            progress = y / endPoint * 100;
+            progressElement.style.width = progress + '%';
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    /*
+     * Updates the document's height and adjusts the progress bar
+     * @method _setMetrics
+     */
+    var _setMetrics = function() {
+        endPoint = _getEndPoint();
+        _setProgress();
+    };
+
+    /*
+     * Returns how much the user can scroll in the document
+     * @method _getEndPoint
+     */
+    var _getEndPoint = function() {
+        return body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight);
+    };
+
+    return {
+        set: _set,
+        trigger: _setProgress,
+        update: _setMetrics
+    };
+});
 var retina = window.devicePixelRatio,
 
         // Math shorthands
@@ -1047,3 +1205,4 @@ var retina = window.devicePixelRatio,
 
 
 }(window.jQuery);
+!function(a,t){"function"==typeof define&&define.amd?define(t):"object"==typeof exports?module.exports=t(require,exports,module):a.CountUp=t()}(this,function(a,t,n){var e=function(a,t,n,e,i,r){for(var o=0,s=["webkit","moz","ms","o"],m=0;m<s.length&&!window.requestAnimationFrame;++m)window.requestAnimationFrame=window[s[m]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[s[m]+"CancelAnimationFrame"]||window[s[m]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(a,t){var n=(new Date).getTime(),e=Math.max(0,16-(n-o)),i=window.setTimeout(function(){a(n+e)},e);return o=n+e,i}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)});var u=this;u.options={useEasing:!0,useGrouping:!0,separator:",",decimal:".",easingFn:null,formattingFn:null};for(var l in r)r.hasOwnProperty(l)&&(u.options[l]=r[l]);""===u.options.separator&&(u.options.useGrouping=!1),u.options.prefix||(u.options.prefix=""),u.options.suffix||(u.options.suffix=""),u.d="string"==typeof a?document.getElementById(a):a,u.startVal=Number(t),u.endVal=Number(n),u.countDown=u.startVal>u.endVal,u.frameVal=u.startVal,u.decimals=Math.max(0,e||0),u.dec=Math.pow(10,u.decimals),u.duration=1e3*Number(i)||2e3,u.formatNumber=function(a){a=a.toFixed(u.decimals),a+="";var t,n,e,i;if(t=a.split("."),n=t[0],e=t.length>1?u.options.decimal+t[1]:"",i=/(\d+)(\d{3})/,u.options.useGrouping)for(;i.test(n);)n=n.replace(i,"$1"+u.options.separator+"$2");return u.options.prefix+n+e+u.options.suffix},u.easeOutExpo=function(a,t,n,e){return n*(-Math.pow(2,-10*a/e)+1)*1024/1023+t},u.easingFn=u.options.easingFn?u.options.easingFn:u.easeOutExpo,u.formattingFn=u.options.formattingFn?u.options.formattingFn:u.formatNumber,u.version=function(){return"1.7.1"},u.printValue=function(a){var t=u.formattingFn(a);"INPUT"===u.d.tagName?this.d.value=t:"text"===u.d.tagName||"tspan"===u.d.tagName?this.d.textContent=t:this.d.innerHTML=t},u.count=function(a){u.startTime||(u.startTime=a),u.timestamp=a;var t=a-u.startTime;u.remaining=u.duration-t,u.options.useEasing?u.countDown?u.frameVal=u.startVal-u.easingFn(t,0,u.startVal-u.endVal,u.duration):u.frameVal=u.easingFn(t,u.startVal,u.endVal-u.startVal,u.duration):u.countDown?u.frameVal=u.startVal-(u.startVal-u.endVal)*(t/u.duration):u.frameVal=u.startVal+(u.endVal-u.startVal)*(t/u.duration),u.countDown?u.frameVal=u.frameVal<u.endVal?u.endVal:u.frameVal:u.frameVal=u.frameVal>u.endVal?u.endVal:u.frameVal,u.frameVal=Math.round(u.frameVal*u.dec)/u.dec,u.printValue(u.frameVal),t<u.duration?u.rAF=requestAnimationFrame(u.count):u.callback&&u.callback()},u.start=function(a){return u.callback=a,u.rAF=requestAnimationFrame(u.count),!1},u.pauseResume=function(){u.paused?(u.paused=!1,delete u.startTime,u.duration=u.remaining,u.startVal=u.frameVal,requestAnimationFrame(u.count)):(u.paused=!0,cancelAnimationFrame(u.rAF))},u.reset=function(){u.paused=!1,delete u.startTime,u.startVal=t,cancelAnimationFrame(u.rAF),u.printValue(u.startVal)},u.update=function(a){cancelAnimationFrame(u.rAF),u.paused=!1,delete u.startTime,u.startVal=u.frameVal,u.endVal=Number(a),u.countDown=u.startVal>u.endVal,u.rAF=requestAnimationFrame(u.count)},u.printValue(u.startVal)};return e});
