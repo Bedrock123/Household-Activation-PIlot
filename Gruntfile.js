@@ -8,8 +8,6 @@ module.exports = function(grunt) {
                         'js/main.js',
                         'js/scrollprogress.js',
                         'js/confetti.js',
-                        'js/masonry.js',
-                        'js/typed.js',
                         'js/count.js'
                     ],
                     dest: 'build/js/scripts.js',
@@ -30,7 +28,6 @@ module.exports = function(grunt) {
                     files: {
                         'build/js/vender-scripts.min.js': ['build/js/scripts.js'],
                         'build/js/modernizr.custom.min.js': ['js/modernizr.custom.js'],
-                        'build/js/custom.min.js': ['js/custom.js'],
                     }
                 }
             },
