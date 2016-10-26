@@ -98,12 +98,13 @@
 				</svg>
             </div>
         </header>
-		 <canvas id="confetti" width="1" height="1"></canvas>
+
+		 <canvas id="world"></canvas>
         <!-- Page Header / Container
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <div class="ip-main">
 	
-            <h2 style="margin-top: 40px;">Did you know <span class='child-name'>Carlos</span> is a <br> Learning Ally Hero?</h2>
+            <h2 style="margin-top: 40px;">Did you know <span class='child-name'><span id=“first-name”>Carlos</span></span> is a <br> Learning Ally Hero?</h2>
             <!-- Main Page Content
              –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 			 		
@@ -115,9 +116,9 @@
 						<section id="intro" class="main" style="padding-left:40%;">
 							<div class="spotlight">
 								<div class="content intro-content">
-								<h3 class='white-header'>Carlos is among the top 10% of students reading with Learning Ally!</h3>
+								<h3 class='white-header'><span id=“first-name”>Carlos</span> is among the top 10% of students reading with Learning Ally!</h3>
 								<hr class="LA-Rule">
-								<p class='white-subtext' > Since August of 2015, Carlos has used Learning Ally to read ..</p>
+								<p class='white-subtext' > Since August of 2015, <span id=“first-name”>Carlos</span> has used Learning Ally to read ..</p>
 							</header>
 								<!-- Statistics Bar
 							–––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -126,25 +127,25 @@
 									<div class='image-container'>
 										<img src="img/tile-images/calender.png" alt="" class="img-tile">
 									</div>
-									<p><strong><span id="days-read"></span></strong> Days Read This Year</p>
+									<p><strong><span id="days-read">23</span></strong> Days Read This Year</p>
 								</li>
 								<li class="style2">
 									<div class='image-container'>
 										<img src="img/tile-images/book.png" alt="" class="img-tile">
 									</div>
-									<p><strong><span id="hours-read"></span></strong> Total Hours Read</p>
+									<p><strong><span id="hours-read">1925</span></strong> Total Hours Read</p>
 								</li>
 								<li class="style3">
 									<div class='image-container'>
 										<img src="img/tile-images/clock-white.png" alt="" class="img-tile">
 									</div>
-									<p><strong><span id="avg-min-read"></span></strong> Average Minutes Read</p>
+									<p><strong><span id="avg-min-read">325</span></strong> Average Minutes Read</p>
 								</li>
 								<li class="style4">
 									<div class='image-container'>
 										<img src="img/tile-images/weekend.png" alt="" class="img-tile">
 									</div>
-									<p><strong><span id="weekends-read"></span></strong> Saturdays or Sundays Reading</p>
+									<p><strong><span id="weekends-read">120</span></strong> Saturdays or Sundays Reading</p>
 								</li>
 							</ul>
 								</div>
@@ -156,9 +157,9 @@
 							<div class="spotlight">
 								<div class="content">
 									<header class="major">
-										<h2 class="plain-text-header">How does reading with Learning Ally benefit Carlos?</h2>
+										<h2 class="plain-text-header">How does reading with Learning Ally benefit <span id=“first-name”>Carlos</span>?</h2>
 									</header>
-									<p class="plain-text ">When students like Carlos read with Learning Ally, they 
+									<p class="plain-text ">When students like <span id=“first-name”>Carlos</span> read with Learning Ally, they 
 							develop skills critical for learning and lifelong success. 
 							Research has shown that extensive reading - including 
 							Learning Ally audiobooks - increases general knowledge, 
@@ -178,11 +179,11 @@
 							<div class="spotlight">
 								<div class="content">
 									<header class="major">
-										<h2 class="plain-text-header">How can you help Carlos keep up the good work?</h2>
+										<h2 class="plain-text-header">How can you help <span id=“first-name”>Carlos</span> keep up the good work?</h2>
 									</header>
-									<p class="plain-text "><span class="count">1. </span><span class='bold-text'>Celebrate success.</span> Carlos is a Learning Ally Hero.  </p>
+									<p class="plain-text "><span class="count">1. </span><span class='bold-text'>Celebrate success.</span> <span id=“first-name”>Carlos</span> is a Learning Ally Hero.  </p>
 									<p class="plain-text "><span class="count">2. </span> <span class='bold-text'>Talk to your child's teachers.</span> Encourage them to 
-									allow Carlos to use Learning Ally to complete reading
+									allow <span id=“first-name”>Carlos</span> to use Learning Ally to complete reading
 									assignments. Then make sure that all the needed books
 									are downloaded in Learning Ally LINK.</p>	
 										<p class="plain-text "><span class="count">3. </span> <span class='bold-text'>Keep up the encouragement.</span> Login to your parent
@@ -199,7 +200,7 @@
 						–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 						<section id="third" class="main special">
 							<header class="major">
-								<h2 class='center-header'>How can you help other students  <br>	succeed like Carlos?</h2>
+								<h2 class='center-header'>How can you help other students  <br>	succeed like <span id=“first-name”>Carlos</span>?</h2>
 								<div class='sub-header-container'>
 									<p class="plain-text header-subtext ">Nationwide, over lifelong academic, social, and even financial challenges. <br><br>
 										Learning Ally is a national non-profit (501c3) that relies on the generosity of volunteers,
@@ -210,7 +211,7 @@
 								<li>
 									<span class=" major style1"><img src="img/tile-images/thumb.png" alt="" class='icon-image'></span>
 									<h3 class="sub-icon-header" style="color: #3c028d">Share this page with your family and friends</h3>
-									<p class="sub-icon-text">You can use social media to celebrate Carlos andhelp spread the word about Learning Ally.</p>
+									<p class="sub-icon-text">You can use social media to celebrate <span id=“first-name”>Carlos</span> andhelp spread the word about Learning Ally.</p>
 								
 									<a href="https://www.learningally.org/Why-Audiobooks/gclid/CMG04LuQ9s8CFcNahgodXKEKWA" class="button mobile-button" >Share</a>
 								</li>
@@ -264,11 +265,11 @@
         <script>
 		// Makes Confetti Dissapear 12 seconds after load
 		window.setTimeout(function() {
-			$('#confetti').fadeOut("slow");
+			$('#world').fadeOut("slow");
 		}, 8000);
 
 		if ($(window).width() < 800) {
-			$('#confetti').fadeOut("slow");
+			$('#world').fadeOut("slow");
 		}
 		// Scroll Progress Init/Config 
 		scrollProgress.set({

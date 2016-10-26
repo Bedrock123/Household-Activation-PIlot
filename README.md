@@ -1,6 +1,6 @@
 ##Household Activation Pilot
 
-[View the live demo](http://zacharybedrosian.com/LEARNING/V13/index.html)
+[View the live demo](http://zacharybedrosian.com/LEARNING/V16/index.html)
 
 Household Activation Pilot is a single page dashboard that summarizes a Learning Ally member's yearly reading statistics and reading averages.
 
@@ -11,6 +11,16 @@ ReactJS Tags
 Listed below are all of the tags in the index.html and what data point they correspond with.
 
 **Importante Note: All of the reading stats are controlled by the CountUp.JS Script. I placed all of the custom init scripts in the html page for your reference.** 
+
+~~~  javascript
+    // CountUp.JS Configuration
+    //You will have to change the 362 here. The one inside of the html element is overridden by countup, but I would input it there as well incase countup fails
+    var days = new CountUp("days-read", 0, 362, 0, 12.5, options); 
+    var hours = new CountUp("hours-read", 0, 1925, 0, 12.5, options);
+    var mins = new CountUp("avg-min-read", 0, 325, 0, 12.5, options);
+    var weekends = new CountUp("weekends-read", 0, 118, 0, 12.5, options);
+...
+~~~
 
 ~~~ html
 <!-- Learning Ally Member Frist Name -->

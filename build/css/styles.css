@@ -468,17 +468,17 @@ body {
 }
 
 
-/*Do not show confetti on phones and tablets*/
+/*Do not show world on phones and tablets*/
 
 @media (min-width: 800px) {
-    #confetti {
+    #world {
         position: absolute;
         z-index: 1;
     }
 }
 
 @media (max-width: 800px) {
-    #confetti {
+    #world {
         position: absolute;
         z-index: 1;
         display: none;
